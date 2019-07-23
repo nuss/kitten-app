@@ -12,13 +12,15 @@
     </div>
     <div>
       <div>Select your favourite kitten:</div>
-      <div v-for="kitten in filteredKittens">
-        <div>
-          {{ kitten.name }}
+      <div class="kitten-cards">
+        <div class="kitten-card" v-for="kitten in filteredKittens">
+          <div>
+           {{ kitten.name }}
+          </div>
+          <img
+            :src="require('./assets/images/' + kitten.img)"
+            class="kitten-image">
         </div>
-        <img
-          :src="require('./assets/images/' + kitten.img)"
-          class="kitten-image">
       </div>
     </div>
   </div>
@@ -76,11 +78,19 @@ h5 {
   font-size: 16px;
   text-align: center;
   color: #2c3e50;
-  margin-top:30px;
+  margin-top: 30px;
+}
+
+.kitten-cards {
+  display: flex;
+  flex-wrap: wrap;
+  width: 1000px;
+  margin: 0 auto;
 }
 
 .kitten-image {
   max-height: 100px;
+  width: 190px;
 }
 
 .kitten-card {
@@ -88,5 +98,6 @@ h5 {
   border-radius: 4px;
   box-shadow: 0 0 3px 0 rgba(0,0,0,.05);
   text-align: left;
+  width: 190px;
 }
 </style>
