@@ -3,18 +3,29 @@
     <div>
       <h1>My Kitten App</h1>
     </div>
-    <div>
-      <div>Kitten of the day:</div>
-      <div class="kitten-card centered">
-        <div v-if="selectedKitten">{{ selectedKitten.name }}</div>
+    <!-- <div> -->
+      <h2>Kitten of the day:</h2>
+      <div class="kitten-card selected-kitten centered">
+        <div>
+          <h5 v-if="selectedKitten">{{ selectedKitten.name }}</h5>
+          <p>
+            {{ selectedKitten.age }}<br>
+            Fur color: {{ selectedKitten.furColor }}<br>
+            Favourite food: {{ selectedKitten.favouriteFood }}
+          </p>
+        </div>
         <div
           :style="{'background-image': `url(${require('./assets/images/' + selectedKitten.img)})`}"
           class="kitten-image">
         </div>
+        <div class="like-buttons">
+          <button class="like"></button>
+          <button class="dislike"></button>
+        </div>
       </div>
-    </div>
+    <!-- </div> -->
     <div>
-      <div>Select your favourite kitten:</div>
+      <h2>Select your favourite kitten:</h2>
       <div class="kitten-cards">
         <div class="kitten-card" v-for="kitten in filteredKittens" v-bind:key="kitten">
           <div>
@@ -137,15 +148,50 @@ h1 {
   -webkit-box-shadow: 0 0 3px 0 rgba(0,0,0,.05);
 }
 
-.centered {
-  margin: 0 auto;
+.selected-kitten {
+  display: grid;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+button {
+  background-color: white;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  border-style: none;
+  cursor: pointer;
+  display: block;
 }
 
 button.heart {
-  margin: 6px auto;
-  border-style: none;
-  display: block;
-  height: 40px;
+  background-image: url(/static/img/heart.svg);
+  height: 22px;
+  width: 100%;
+  margin: 10px auto;
+}
+
+button.heart.fav {
+  background-image: url(/static/img/heart_full.svg);
+}
+
+.like-buttons {
+  display: flex;
+  margin: 10px auto;
+  justify-content: center;
+}
+
+button.like,
+button.dislike {
+  height: 22px;
   width: 40px;
+}
+
+button.like {
+  background-image: url(/static/img/like.svg);
+}
+
+button.dislike {
+  background-image: url(/static/img/dislike.svg);
 }
 </style>
