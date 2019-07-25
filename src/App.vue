@@ -25,6 +25,9 @@
     <div>
       <h2>Select your favourite kitten:</h2>
       <div class="kitten-cards">
+        <!-- eslint chokes on the following line, saying it wants a 'v-bind:key'.
+        However, if a v-bind:key is added the browser console spits out a warning.
+        Nevertheless, things seem to work as they should... -->
         <div class="kitten-card" v-for="(kitten, index) in filteredKittens">
           <div>
            <h5>{{ kitten.name }}</h5>
