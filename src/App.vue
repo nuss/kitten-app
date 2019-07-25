@@ -3,31 +3,29 @@
     <div>
       <h1>My Kitten App</h1>
     </div>
-    <!-- <div> -->
-      <h2>Kitten of the day:</h2>
-      <div class="kitten-card selected-kitten centered">
-        <div>
-          <h5 v-if="selectedKitten">{{ selectedKitten.name }}</h5>
-          <p>
-            {{ selectedKitten.age }}<br>
-            Fur color: {{ selectedKitten.furColor }}<br>
-            Favourite food: {{ selectedKitten.favouriteFood }}
-          </p>
-        </div>
-        <div
-          :style="{'background-image': `url(${require('./assets/images/' + selectedKitten.img)})`}"
-          class="kitten-image">
-        </div>
-        <div class="like-buttons">
-          <button class="like"></button>
-          <button class="dislike"></button>
-        </div>
+    <h2>Kitten of the day:</h2>
+    <div class="kitten-card selected-kitten">
+      <div>
+        <h5 v-if="selectedKitten">{{ selectedKitten.name }}</h5>
+        <p>
+          {{ selectedKitten.age }}<br>
+          Fur color: {{ selectedKitten.furColor }}<br>
+          Favourite food: {{ selectedKitten.favouriteFood }}
+        </p>
       </div>
-    <!-- </div> -->
+      <div
+        :style="{'background-image': `url(${require('./assets/images/' + selectedKitten.img)})`}"
+        class="kitten-image selected">
+      </div>
+      <div class="like-buttons">
+        <button class="like"></button>
+        <button class="dislike"></button>
+      </div>
+    </div>
     <div>
       <h2>Select your favourite kitten:</h2>
       <div class="kitten-cards">
-        <div class="kitten-card" v-for="kitten in filteredKittens" v-bind:key="kitten">
+        <div class="kitten-card" v-for="(kitten, index) in filteredKittens">
           <div>
            <h5>{{ kitten.name }}</h5>
            <p>
@@ -37,10 +35,11 @@
            </p>
           </div>
           <div
+            v-on:click="setKittenOfTheDay(kitten)" v-bind:title="kitten.message"
             :style="{'background-image': `url(${require('./assets/images/' + kitten.img)})`}"
             class="kitten-image">
           </div>
-          <button class="heart" v-bind:class="{ fav: kitten.isFavourite }"></button>
+          <button class="heart" v-bind:class="{ fav: kitten.isFavourite }" v-on:click="setKittenFav(kitten)" ></button>
         </div>
       </div>
     </div>
@@ -68,6 +67,21 @@ export default {
   created() {
     // set the first kitten as "kitten of the day"
     this.selectedKitten = this.kittens[0];
+  },
+  methods: {
+    setKittenOfTheDay(kitten) {
+      this.selectedKitten = {
+        name: kitten.name,
+        age: kitten.age,
+        furColor: kitten.furColor,
+        favouriteFood: kitten.favouriteFood,
+        img: kitten.img,
+        isFavourite: kitten.isFavourite,
+      };
+    },
+    setKittenFav(kitten) {
+      kitten.isFavourite = !kitten.isFavourite;
+    }
   }
 }
 </script>
@@ -120,6 +134,10 @@ h5 {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+.kitten-image:not(.selected) {
+  cursor: pointer;
 }
 
 .kitten-card {

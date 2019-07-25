@@ -6,6 +6,7 @@ export const KITTEN_DATA = [
     favouriteFood: "fish",
     img: "kitten1.png",
     isFavourite: false,
+    message: 'click to set Kitty 1 as kitten of the day',
   },{
     name: "Kitty 2",
     age: "5 months",
@@ -13,6 +14,7 @@ export const KITTEN_DATA = [
     favouriteFood: "salmon",
     img: "kitten2.jpg",
     isFavourite: false,
+    message: 'click to set Kitty 2 as kitten of the day',
   },{
     name: "Kitty 3",
     age: "3 months",
@@ -20,6 +22,7 @@ export const KITTEN_DATA = [
     favouriteFood: "chicken",
     img: "kitten3.jpg",
     isFavourite: false,
+    message: 'click to set Kitty 3 as kitten of the day',
   },{
     name: "Kitty 4",
     age: "10 months",
@@ -27,6 +30,7 @@ export const KITTEN_DATA = [
     favouriteFood: "jelly beans",
     img: "kitten4.jpeg",
     isFavourite: true,
+    message: 'click to set Kitty 4 as kitten of the day',
   },{
     name: "Kitty 5",
     age: "8 months",
@@ -34,6 +38,7 @@ export const KITTEN_DATA = [
     favouriteFood: "beef",
     img: "kitten5.jpg",
     isFavourite: false,
+    message: 'click to set Kitty 5 as kitten of the day',
   },{
     name: "Kitty 6",
     age: "8 months",
@@ -41,6 +46,7 @@ export const KITTEN_DATA = [
     favouriteFood: "sheeba",
     img: "kitten6.jpg",
     isFavourite: true,
+    message: 'click to set Kitty 6 as kitten of the day',
   },{
     name: "Kitty 7",
     age: "4 months",
@@ -48,6 +54,7 @@ export const KITTEN_DATA = [
     favouriteFood: "flies",
     img: "kitten7.jpg",
     isFavourite: false,
+    message: 'click to set Kitty 7 as kitten of the day',
   },{
     name: "Kitty 8",
     age: "1 month",
@@ -55,6 +62,7 @@ export const KITTEN_DATA = [
     favouriteFood: "fish",
     img: "kitten8.png",
     isFavourite: false,
+    message: 'click to set Kitty 8 as kitten of the day',
   },{
     name: "Kitty 9",
     age: "12 months",
@@ -62,6 +70,7 @@ export const KITTEN_DATA = [
     favouriteFood: "treats",
     img: "kitten9.jpg",
     isFavourite: false,
+    message: 'click to set Kitty 9 as kitten of the day',
   },{
     name: "Kitty 10",
     age: "6 months",
@@ -69,6 +78,7 @@ export const KITTEN_DATA = [
     favouriteFood: "cheese",
     img: "kitten10.jpg",
     isFavourite: true,
+    message: 'click to set Kitty 10 as kitten of the day',
   },{
     name: "Kitty 11",
     age: "4 months",
@@ -76,5 +86,6 @@ export const KITTEN_DATA = [
     favouriteFood: "butter fish",
     img: "kitten11.jpg",
     isFavourite: false,
+    message: 'click to set Kitty 11 as kitten of the day',
   },
 ];
