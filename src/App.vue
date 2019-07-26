@@ -38,7 +38,7 @@
            </p>
           </div>
           <div
-            v-on:click="setKittenOfTheDay(kitten)" v-bind:title="kitten.message"
+            v-on:click="setKittenOfTheDay(kitten)" v-bind:title="setTitle(kitten)"
             :style="{'background-image': `url(${require('./assets/images/' + kitten.img)})`}"
             class="kitten-image">
           </div>
@@ -72,6 +72,9 @@ export default {
     this.selectedKitten = this.kittens[0];
   },
   methods: {
+    setTitle(kitten) {
+      return 'click to set ' + kitten.name + ' as "kitten of the day"';
+    },
     setKittenOfTheDay(kitten) {
       this.selectedKitten = {
         name: kitten.name,
