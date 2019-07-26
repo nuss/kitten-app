@@ -3,10 +3,10 @@
     <div>
       <h1>My Kitten App</h1>
     </div>
-    <h2>Kitten of the day:</h2>
-    <div class="kitten-card selected-kitten">
+    <h2 v-if="selectedKitten">Kitten of the day:</h2>
+    <div v-if="selectedKitten" class="kitten-card selected-kitten">
       <div>
-        <h5 v-if="selectedKitten">{{ selectedKitten.name }}</h5>
+        <h5>{{ selectedKitten.name }}</h5>
         <p>
           {{ selectedKitten.age }}<br>
           Fur color: {{ selectedKitten.furColor }}<br>
