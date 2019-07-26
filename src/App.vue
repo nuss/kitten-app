@@ -28,7 +28,7 @@
         <!-- eslint chokes on the following line, saying it wants a 'v-bind:key'.
         However, if a v-bind:key is added the browser console spits out a warning.
         Nevertheless, things seem to work as they should... -->
-        <div class="kitten-card" v-for="(kitten, index) in filteredKittens">
+        <div class="kitten-card" v-for="kitten in filteredKittens">
           <div>
            <h5>{{ kitten.name }}</h5>
            <p>
@@ -72,9 +72,11 @@ export default {
     this.selectedKitten = this.kittens[0];
   },
   methods: {
+    // set a mouse-over title
     setTitle(kitten) {
       return 'click to set ' + kitten.name + ' as "kitten of the day"';
     },
+    // update 'kitten of the day' data
     setKittenOfTheDay(kitten) {
       this.selectedKitten = {
         name: kitten.name,
@@ -85,6 +87,7 @@ export default {
         isFavourite: kitten.isFavourite,
       };
     },
+    // favourite or unfavourite a kitten
     setKittenFav(kitten) {
       kitten.isFavourite = !kitten.isFavourite;
     }
@@ -101,7 +104,7 @@ h1 {
   font-size: 36px;
   font-weight: bolder;
   font-family: 'Raleway', Helvetica, Arial, sans-serif;
-  background-color: #fff;
+  background-color: white;
   padding: 6px 8px;
   display: inline-block;
 }
@@ -112,6 +115,7 @@ h2 {
 
 h5 {
   font-weight: bolder;
+  font-size: 14px;
   margin: 0;
 }
 
@@ -164,12 +168,9 @@ h5 {
 .kitten-card,
 h1 {
   background-color: white;
+  /* are -moz and -webkit variants added automatically by vue if needed? */
   border-radius: 4px;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
   box-shadow: 0 0 3px 0 rgba(0,0,0,.05);
-  -moz-box-shadow: 0 0 3px 0 rgba(0,0,0,.05);
-  -webkit-box-shadow: 0 0 3px 0 rgba(0,0,0,.05);
 }
 
 .selected-kitten {
@@ -186,6 +187,18 @@ button {
   border-style: none;
   cursor: pointer;
   display: block;
+}
+
+/* hide outline on click, working on chrome-based browsers */
+button:active,
+button:focus {
+  outline: 0;
+  outline-style: none;
+}
+
+/* firefox workaround for hiding outline */
+button::-moz-focus-inner {
+  border: 0;
 }
 
 button.heart {
