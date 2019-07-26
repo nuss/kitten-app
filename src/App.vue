@@ -74,7 +74,7 @@ export default {
   methods: {
     // set a mouse-over title
     setTitle(kitten) {
-      return 'click to set ' + kitten.name + ' as "kitten of the day"';
+      return 'click to select ' + kitten.name + ' as "kitten of the day"';
     },
     // update 'kitten of the day' data
     setKittenOfTheDay(kitten) {
