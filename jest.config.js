@@ -1,4 +1,5 @@
 module.exports = {
+  verbose: true,
   moduleFileExtensions: [
     'js',
     'jsx',
@@ -6,12 +7,12 @@ module.exports = {
     'vue'
   ],
   transform: {
-    '^.+\\.vue$': 'vue-jest',
-    '.+\\.(css|styl|less|sass|scss|svg|png|jpg|ttf|woff|woff2)$': 'jest-transform-stub',
-    '^.+\\.jsx?$': 'babel-jest'
+    '^.+\\.vue$': '<rootDir>/node_modules/vue-jest',
+    '.+\\.(css|styl|less|sass|scss|svg|png|jpg|ttf|woff|woff2)$': '<rootDir>/node_modules/jest-transform-stub',
+    '^.+\\.(js|jsx)?$': '<rootDir>/node_modules/babel-jest'
   },
   transformIgnorePatterns: [
-    '/node_modules/'
+    '<rootDir>/node_modules/'
   ],
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/src/$1'
@@ -26,5 +27,6 @@ module.exports = {
   watchPlugins: [
     'jest-watch-typeahead/filename',
     'jest-watch-typeahead/testname'
-  ]
+  ],
+  cache: false,
 }
